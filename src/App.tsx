@@ -258,7 +258,7 @@ function App() {
                 className="p-1!"
               >
                 <img
-                  src={toggle ? "/images/x-1.png" : "/images/x-2.png"}
+                  src={toggle ? "/assets/images/x-1.png" : "/assets/images/x-2.png"}
                   alt=""
                 />
               </button>
@@ -288,19 +288,19 @@ function App() {
                 <div className="flex flex-row gap-2 flex-wrap items-center">
                   <div className="flex flex-col items-center gap-1">
                     <a href={"/history/v0.png"} target="_blank">
-                      <img width={330} src={"/history/v0.png"} />
+                      <img width={330} src={"/assets/history/v0.png"} />
                     </a>
                     <span className="text-inverse small">Première version</span>
                   </div>
                   <div className="flex flex-col items-center gap-1">
                     <a href={"/history/v1.png"} target="_blank">
-                      <img width={330} src={"/history/v1.png"} />
+                      <img width={330} src={"/assets/history/v1.png"} />
                     </a>
                     <span className="text-inverse small">Deuxième version</span>
                   </div>
                   <div className="flex flex-col items-center gap-1">
                     <a href={"/history/v2.png"} target="_blank">
-                      <img width={330} src={"/history/v2.png"} />
+                      <img width={330} src={"/assets/history/v2.png"} />
                     </a>
                     <span className="text-inverse small">
                       Troisième version
@@ -308,7 +308,7 @@ function App() {
                   </div>
                   <div className="flex flex-col items-center gap-1">
                     <a href={"/history/v3.png"} target="_blank">
-                      <img width={330} src={"/history/v3.png"} />
+                      <img width={330} src={"/assets/history/v3.png"} />
                     </a>
                     <span className="text-inverse small">Version actuelle</span>
                   </div>
@@ -353,7 +353,7 @@ function App() {
                 className="p-1!"
               >
                 <img
-                  src={toggle ? "/images/x-1.png" : "/images/x-2.png"}
+                  src={toggle ? "/assets/images/x-1.png" : "/assets/images/x-2.png"}
                   alt=""
                 />
               </button>
@@ -370,8 +370,8 @@ function App() {
                       discoveredMembers.includes(id)
                         ? member.avatar
                         : toggle
-                        ? "/images/avatar-1.png"
-                        : "/images/avatar-2.png"
+                        ? "/assets/images/avatar-1.png"
+                        : "/assets/images/avatar-2.png"
                     }
                     alt={`Avatar de ${member.name}`}
                   />
@@ -423,7 +423,7 @@ function App() {
               >
                 Informations
                 <img
-                  src={toggle ? "/images/help-1.png" : "/images/help-2.png"}
+                  src={toggle ? "/assets/images/help-1.png" : "/assets/images/help-2.png"}
                   alt=""
                 />
               </button>
@@ -439,8 +439,8 @@ function App() {
                 <img
                   src={
                     toggle
-                      ? "/images/portraits-1.png"
-                      : "/images/portraits-2.png"
+                      ? "/assets/images/portraits-1.png"
+                      : "/assets/images/portraits-2.png"
                   }
                   alt=""
                 />
@@ -454,7 +454,7 @@ function App() {
                 <img
                   width={100}
                   height={100}
-                  src={"/avatars/abelforth.png"}
+                  src={"/assets/avatars/abelforth.png"}
                   alt="Avatar de Abelforth Dumbledore"
                 />
                 {msgAbelforth != "" && (
@@ -466,21 +466,29 @@ function App() {
                   src={
                     selectedIngredients.length == 1
                       ? toggle
-                        ? "/images/level1-glass-1.png"
-                        : "/images/level1-glass-2.png"
+                        ? "/assets/images/level1-glass-1.png"
+                        : "/assets/images/level1-glass-2.png"
                       : selectedIngredients.length == 2
                       ? toggle
-                        ? "/images/level2-glass-1.png"
-                        : "/images/level2-glass-2.png"
+                        ? "/assets/images/level2-glass-1.png"
+                        : "/assets/images/level2-glass-2.png"
                       : selectedIngredients.length == 3
                       ? toggle
-                        ? "/images/level3-glass-1.png"
-                        : "/images/level3-glass-2.png"
+                        ? "/assets/images/level3-glass-1.png"
+                        : "/assets/images/level3-glass-2.png"
                       : toggle
-                      ? "/images/empty-glass-1.png"
-                      : "/images/empty-glass-2.png"
+                      ? "/assets/images/empty-glass-1.png"
+                      : "/assets/images/empty-glass-2.png"
                   }
-                  alt="Verre vide"
+                  alt={
+                    selectedIngredients.length == 1 ?
+                      "Verre remplit au premier niveau"
+                      : selectedIngredients.length == 2
+                      ? "Verre remplit au deuxième niveau"
+                      : selectedIngredients.length == 3
+                      ? "Verre remplit au troisième niveau"
+                      : "Verre vide"
+                  }
                 />
                 <div className="flex flex-wrap flex-row justify-center items-start gap-4">
                   <button
@@ -491,7 +499,7 @@ function App() {
                     Jeter
                     <img
                       src={
-                        toggle ? "/images/trash-1.png" : "/images/trash-2.png"
+                        toggle ? "/assets/images/trash-1.png" : "/assets/images/trash-2.png"
                       }
                       alt=""
                     />
@@ -503,7 +511,7 @@ function App() {
                   >
                     Servir
                     <img
-                      src={toggle ? "/images/go-1.png" : "/images/go-2.png"}
+                      src={toggle ? "/assets/images/go-1.png" : "/assets/images/go-2.png"}
                       alt=""
                     />
                   </button>
@@ -537,7 +545,7 @@ function App() {
                         <div className="absolute top-0 right-0 p-1 selected">
                           <img
                             src={
-                              toggle ? "/images/ok-1.png" : "/images/ok-2.png"
+                              toggle ? "/assets/images/ok-1.png" : "/assets/images/ok-2.png"
                             }
                             alt=""
                           />
@@ -555,7 +563,7 @@ function App() {
                 className="scroll-left"
               >
                 <img
-                  src={toggle ? "/images/left-1.png" : "/images/left-2.png"}
+                  src={toggle ? "/assets/images/left-1.png" : "/assets/images/left-2.png"}
                 />
               </div>
             )}
@@ -568,7 +576,7 @@ function App() {
                 className="scroll-right"
               >
                 <img
-                  src={toggle ? "/images/right-1.png" : "/images/right-2.png"}
+                  src={toggle ? "/assets/images/right-1.png" : "/assets/images/right-2.png"}
                 />
               </div>
             )}

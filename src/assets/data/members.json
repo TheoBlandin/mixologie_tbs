@@ -1,52 +1,52 @@
 {
   "mimil": {
     "name": "Sam Dejardin",
-    "avatar": "/avatars/mimil.png",
+    "avatar": "/assets/avatars/mimil.png",
     "beverage": "ikea"
   },
   "romie": {
     "name": "Eurydice Spector",
-    "avatar": "/avatars/romie.png",
+    "avatar": "/assets/avatars/romie.png",
     "beverage": "douceur-estival"
   },
   "mariechat": {
     "name": "Esther Dreux",
-    "avatar": "/avatars/mariechat.png",
+    "avatar": "/assets/avatars/mariechat.png",
     "beverage": "virgin-pina-colada"
   },
   "emma": {
     "name": "Emma Potfleur",
-    "avatar": "/avatars/emma.png",
+    "avatar": "/assets/avatars/emma.png",
     "beverage": "diabolo-peche"
   },
   "skins": {
     "name": "Eleanor Van Green",
-    "avatar": "/avatars/skins.png",
+    "avatar": "/assets/avatars/skins.png",
     "beverage": "sunset-lover"
   },
   "ellie": {
     "name": "Elyo Tonks",
-    "avatar": "/avatars/ellie.gif",
+    "avatar": "/assets/avatars/ellie.gif",
     "beverage": "tropical"
   },
   "matt": {
     "name": "Terry Mitchell",
-    "avatar": "/avatars/matt.png",
+    "avatar": "/assets/avatars/matt.png",
     "beverage": "spritz-myrtille-violette"
   },
   "thy": {
     "name": "Heiji Itsuki",
-    "avatar": "/avatars/thy.png",
+    "avatar": "/assets/avatars/thy.png",
     "beverage": "ifecho"
   },
   "gona": {
     "name": "Dragona Granger",
-    "avatar": "/avatars/gona.gif",
+    "avatar": "/assets/avatars/gona.gif",
     "beverage": "smoothie-myrtille"
   },
   "mal": {
     "name": "Malicia Lestrange",
-    "avatar": "/avatars/mal.png",
+    "avatar": "/assets/avatars/mal.png",
     "beverage": "jardin-floral"
   }
 }
