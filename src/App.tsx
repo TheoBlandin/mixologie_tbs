@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import "./App.css";
 
-import jsonIngredients from ".//data/ingredients.json";
-import jsonBeverages from ".//data/beverages.json";
-import jsonMembers from ".//data/members.json";
-import jsonAbelforth from ".//data/abelforth.json";
+import jsonIngredients from "../src/assets/data/ingredients.json";
+import jsonBeverages from "../src/assets/data/beverages.json";
+import jsonMembers from "../src/assets/data/members.json";
+import jsonAbelforth from "../src/assets/data/abelforth.json";
 
 type Ingredients = {
   [key: string]: {
