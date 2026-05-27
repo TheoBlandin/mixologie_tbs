@@ -1,52 +1,52 @@
 {
-    "mimil": {
-        "name": "Sam Dejardin",
-        "avatar": "../src/assets/avatars/mimil.png",
-        "beverage": "ikea"
-    },
-    "romie": {
-        "name": "Eurydice Spector",
-        "avatar": "../src/assets/avatars/romie.png",
-        "beverage": "douceur-estival"
-    },
-    "mariechat": {
-        "name": "Esther Dreux",
-        "avatar": "../src/assets/avatars/mariechat.png",
-        "beverage": "virgin-pina-colada"
-    },
-    "emma": {
-        "name": "Emma Potfleur",
-        "avatar": "../src/assets/avatars/emma.png",
-        "beverage": "diabolo-peche"
-    },
-    "skins": {
-        "name": "Eleanor Van Green",
-        "avatar": "../src/assets/avatars/skins.png",
-        "beverage": "sunset-lover"
-    },
-    "ellie": {
-        "name": "Elyo Tonks",
-        "avatar": "../src/assets/avatars/ellie.gif",
-        "beverage": "tropical"
-    },
-    "matt": {
-        "name": "Terry Mitchell",
-        "avatar": "../src/assets/avatars/matt.png",
-        "beverage": "spritz-myrtille-violette"
-    },
-    "thy": {
-        "name": "Heiji Itsuki",
-        "avatar": "../src/assets/avatars/thy.png",
-        "beverage": "ifecho"
-    },
-    "gona": {
-        "name": "Dragona Granger",
-        "avatar": "../src/assets/avatars/gona.gif",
-        "beverage": "smoothie-myrtille"
-    },
-    "mal": {
-        "name": "Malicia Lestrange",
-        "avatar": "../src/assets/avatars/mal.png",
-        "beverage": "jardin-floral"
-    }
+  "mimil": {
+    "name": "Sam Dejardin",
+    "avatar": "/avatars/mimil.png",
+    "beverage": "ikea"
+  },
+  "romie": {
+    "name": "Eurydice Spector",
+    "avatar": "/avatars/romie.png",
+    "beverage": "douceur-estival"
+  },
+  "mariechat": {
+    "name": "Esther Dreux",
+    "avatar": "/avatars/mariechat.png",
+    "beverage": "virgin-pina-colada"
+  },
+  "emma": {
+    "name": "Emma Potfleur",
+    "avatar": "/avatars/emma.png",
+    "beverage": "diabolo-peche"
+  },
+  "skins": {
+    "name": "Eleanor Van Green",
+    "avatar": "/avatars/skins.png",
+    "beverage": "sunset-lover"
+  },
+  "ellie": {
+    "name": "Elyo Tonks",
+    "avatar": "/avatars/ellie.gif",
+    "beverage": "tropical"
+  },
+  "matt": {
+    "name": "Terry Mitchell",
+    "avatar": "/avatars/matt.png",
+    "beverage": "spritz-myrtille-violette"
+  },
+  "thy": {
+    "name": "Heiji Itsuki",
+    "avatar": "/avatars/thy.png",
+    "beverage": "ifecho"
+  },
+  "gona": {
+    "name": "Dragona Granger",
+    "avatar": "/avatars/gona.gif",
+    "beverage": "smoothie-myrtille"
+  },
+  "mal": {
+    "name": "Malicia Lestrange",
+    "avatar": "/avatars/mal.png",
+    "beverage": "jardin-floral"
+  }
 }

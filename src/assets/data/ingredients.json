@@ -1,92 +1,92 @@
 {
   "eau": {
     "name": "Eau",
-    "image1": "../src/assets/images/eau-1.png",
-    "image2": "../src/assets/images/eau-2.png"
+    "image1": "/images/eau-1.png",
+    "image2": "/images/eau-2.png"
   },
   "eau-petillante": {
     "name": "Eau pétillante",
-    "image1": "../src/assets/images/eau-petillante-1.png",
-    "image2": "../src/assets/images/eau-petillante-2.png"
+    "image1": "/images/eau-petillante-1.png",
+    "image2": "/images/eau-petillante-2.png"
   },
   "lait": {
     "name": "Lait",
-    "image1": "../src/assets/images/lait-1.png",
-    "image2": "../src/assets/images/lait-2.png"
+    "image1": "/images/lait-1.png",
+    "image2": "/images/lait-2.png"
   },
   "lait-coco": {
     "name": "Lait de coco",
-    "image1": "../src/assets/images/lait-coco-1.png",
-    "image2": "../src/assets/images/lait-coco-2.png"
+    "image1": "/images/lait-coco-1.png",
+    "image2": "/images/lait-coco-2.png"
   },
   "jus-coco": {
     "name": "Jus de coco",
-    "image1": "../src/assets/images/jus-coco-1.png",
-    "image2": "../src/assets/images/jus-coco-2.png"
+    "image1": "/images/jus-coco-1.png",
+    "image2": "/images/jus-coco-2.png"
   },
   "jus-passion": {
     "name": "Jus de fruit de la passion",
-    "image1": "../src/assets/images/jus-passion-1.png",
-    "image2": "../src/assets/images/jus-passion-2.png"
+    "image1": "/images/jus-passion-1.png",
+    "image2": "/images/jus-passion-2.png"
   },
   "jus-ananas": {
     "name": "Jus d'ananas",
-    "image1": "../src/assets/images/jus-ananas-1.png",
-    "image2": "../src/assets/images/jus-ananas-2.png"
+    "image1": "/images/jus-ananas-1.png",
+    "image2": "/images/jus-ananas-2.png"
   },
   "jus-pomme": {
     "name": "Jus de pomme",
-    "image1": "../src/assets/images/jus-pomme-1.png",
-    "image2": "../src/assets/images/jus-pomme-2.png"
+    "image1": "/images/jus-pomme-1.png",
+    "image2": "/images/jus-pomme-2.png"
   },
   "jus-mangue": {
     "name": "Jus de mangue",
-    "image1": "../src/assets/images/jus-mangue-1.png",
-    "image2": "../src/assets/images/jus-mangue-2.png"
+    "image1": "/images/jus-mangue-1.png",
+    "image2": "/images/jus-mangue-2.png"
   },
   "sirop-peche": {
     "name": "Sirop de pêche",
-    "image1": "../src/assets/images/sirop-peche-1.png",
-    "image2": "../src/assets/images/sirop-peche-2.png"
+    "image1": "/images/sirop-peche-1.png",
+    "image2": "/images/sirop-peche-2.png"
   },
   "sirop-rose": {
     "name": "Sirop de rose",
-    "image1": "../src/assets/images/sirop-rose-1.png",
-    "image2": "../src/assets/images/sirop-rose-2.png"
+    "image1": "/images/sirop-rose-1.png",
+    "image2": "/images/sirop-rose-2.png"
   },
   "sirop-violette": {
     "name": "Sirop de violette",
-    "image1": "../src/assets/images/sirop-violette-1.png",
-    "image2": "../src/assets/images/sirop-violette-2.png"
+    "image1": "/images/sirop-violette-1.png",
+    "image2": "/images/sirop-violette-2.png"
   },
   "sirop-airelles": {
     "name": "Sirop d'airelles",
-    "image1": "../src/assets/images/sirop-airelles-1.png",
-    "image2": "../src/assets/images/sirop-airelles-2.png"
+    "image1": "/images/sirop-airelles-1.png",
+    "image2": "/images/sirop-airelles-2.png"
   },
   "sirop-sureau": {
     "name": "Sirop de fleur de sureau",
-    "image1": "../src/assets/images/sirop-sureau-1.png",
-    "image2": "../src/assets/images/sirop-sureau-2.png"
+    "image1": "/images/sirop-sureau-1.png",
+    "image2": "/images/sirop-sureau-2.png"
   },
   "sirop-framboise": {
     "name": "Sirop de framboise",
-    "image1": "../src/assets/images/sirop-framboise-1.png",
-    "image2": "../src/assets/images/sirop-framboise-2.png"
+    "image1": "/images/sirop-framboise-1.png",
+    "image2": "/images/sirop-framboise-2.png"
   },
   "puree-myrtille": {
     "name": "Purée de myrtilles",
-    "image1": "../src/assets/images/puree-myrtille-1.png",
-    "image2": "../src/assets/images/puree-myrtille-2.png"
+    "image1": "/images/puree-myrtille-1.png",
+    "image2": "/images/puree-myrtille-2.png"
   },
   "tranche-ananas": {
     "name": "Tranche d'ananas",
-    "image1": "../src/assets/images/tranche-ananas-1.png",
-    "image2": "../src/assets/images/tranche-ananas-2.png"
+    "image1": "/images/tranche-ananas-1.png",
+    "image2": "/images/tranche-ananas-2.png"
   },
   "rondelle-citron": {
     "name": "Rondelle de citron",
-    "image1": "../src/assets/images/rondelle-citron-1.png",
-    "image2": "../src/assets/images/rondelle-citron-2.png"
+    "image1": "/images/rondelle-citron-1.png",
+    "image2": "/images/rondelle-citron-2.png"
   }
 }

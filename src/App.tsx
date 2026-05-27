@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import "./App.css";
 
-import jsonIngredients from "./../src/assets/data/ingredients.json";
-import jsonBeverages from "./../src/assets/data/beverages.json";
-import jsonMembers from "./../src/assets/data/members.json";
-import jsonAbelforth from "./../src/assets/data/abelforth.json";
+import jsonIngredients from ".//data/ingredients.json";
+import jsonBeverages from ".//data/beverages.json";
+import jsonMembers from ".//data/members.json";
+import jsonAbelforth from ".//data/abelforth.json";
 
 type Ingredients = {
   [key: string]: {
@@ -12,22 +12,22 @@ type Ingredients = {
     image1: string;
     image2: string;
   };
-}
+};
 
 type Beverages = {
   [key: string]: {
     name: string;
     composition: string[];
   };
-}
+};
 
 type Members = {
   [key: string]: {
     name: string;
     avatar: string;
     beverage: string;
-  }
-}
+  };
+};
 
 function App() {
   const [toggle, setToggle] = useState(false);
@@ -147,11 +147,11 @@ function App() {
       const isClose =
         recipeIngredients.filter((item) => selected.includes(item)).length == 2;
 
-        const entry = Object.entries(members).find(
-          ([_, value]) => value.beverage === id
-        );
-        
-        const member = entry?.[0] ?? '';
+      const entry = Object.entries(members).find(
+        ([_, value]) => value.beverage === id
+      );
+
+      const member = entry?.[0] ?? "";
 
       if (isMatch) {
         setFoundMember(member);
@@ -258,11 +258,7 @@ function App() {
                 className="p-1!"
               >
                 <img
-                  src={
-                    toggle
-                      ? "../src/assets/images/x-1.png"
-                      : "../src/assets/images/x-2.png"
-                  }
+                  src={toggle ? "/images/x-1.png" : "/images/x-2.png"}
                   alt=""
                 />
               </button>
@@ -291,28 +287,28 @@ function App() {
                 </p>
                 <div className="flex flex-row gap-2 flex-wrap items-center">
                   <div className="flex flex-col items-center gap-1">
-                    <a href={"../src/assets/history/v0.png"} target="_blank">
-                      <img width={330} src={"../src/assets/history/v0.png"} />
+                    <a href={"/history/v0.png"} target="_blank">
+                      <img width={330} src={"/history/v0.png"} />
                     </a>
                     <span className="text-inverse small">Première version</span>
                   </div>
                   <div className="flex flex-col items-center gap-1">
-                    <a href={"../src/assets/history/v1.png"} target="_blank">
-                      <img width={330} src={"../src/assets/history/v1.png"} />
+                    <a href={"/history/v1.png"} target="_blank">
+                      <img width={330} src={"/history/v1.png"} />
                     </a>
                     <span className="text-inverse small">Deuxième version</span>
                   </div>
                   <div className="flex flex-col items-center gap-1">
-                    <a href={"../src/assets/history/v2.png"} target="_blank">
-                      <img width={330} src={"../src/assets/history/v2.png"} />
+                    <a href={"/history/v2.png"} target="_blank">
+                      <img width={330} src={"/history/v2.png"} />
                     </a>
                     <span className="text-inverse small">
                       Troisième version
                     </span>
                   </div>
                   <div className="flex flex-col items-center gap-1">
-                    <a href={"../src/assets/history/v3.png"} target="_blank">
-                      <img width={330} src={"../src/assets/history/v3.png"} />
+                    <a href={"/history/v3.png"} target="_blank">
+                      <img width={330} src={"/history/v3.png"} />
                     </a>
                     <span className="text-inverse small">Version actuelle</span>
                   </div>
@@ -357,11 +353,7 @@ function App() {
                 className="p-1!"
               >
                 <img
-                  src={
-                    toggle
-                      ? "../src/assets/images/x-1.png"
-                      : "../src/assets/images/x-2.png"
-                  }
+                  src={toggle ? "/images/x-1.png" : "/images/x-2.png"}
                   alt=""
                 />
               </button>
@@ -378,8 +370,8 @@ function App() {
                       discoveredMembers.includes(id)
                         ? member.avatar
                         : toggle
-                        ? "../src/assets/images/avatar-1.png"
-                        : "../src/assets/images/avatar-2.png"
+                        ? "/images/avatar-1.png"
+                        : "/images/avatar-2.png"
                     }
                     alt={`Avatar de ${member.name}`}
                   />
@@ -431,11 +423,7 @@ function App() {
               >
                 Informations
                 <img
-                  src={
-                    toggle
-                      ? "../src/assets/images/help-1.png"
-                      : "../src/assets/images/help-2.png"
-                  }
+                  src={toggle ? "/images/help-1.png" : "/images/help-2.png"}
                   alt=""
                 />
               </button>
@@ -451,8 +439,8 @@ function App() {
                 <img
                   src={
                     toggle
-                      ? "../src/assets/images/portraits-1.png"
-                      : "../src/assets/images/portraits-2.png"
+                      ? "/images/portraits-1.png"
+                      : "/images/portraits-2.png"
                   }
                   alt=""
                 />
@@ -466,7 +454,7 @@ function App() {
                 <img
                   width={100}
                   height={100}
-                  src={"../src/assets/avatars/abelforth.png"}
+                  src={"/avatars/abelforth.png"}
                   alt="Avatar de Abelforth Dumbledore"
                 />
                 {msgAbelforth != "" && (
@@ -478,19 +466,19 @@ function App() {
                   src={
                     selectedIngredients.length == 1
                       ? toggle
-                        ? "../src/assets/images/level1-glass-1.png"
-                        : "../src/assets/images/level1-glass-2.png"
+                        ? "/images/level1-glass-1.png"
+                        : "/images/level1-glass-2.png"
                       : selectedIngredients.length == 2
                       ? toggle
-                        ? "../src/assets/images/level2-glass-1.png"
-                        : "../src/assets/images/level2-glass-2.png"
+                        ? "/images/level2-glass-1.png"
+                        : "/images/level2-glass-2.png"
                       : selectedIngredients.length == 3
                       ? toggle
-                        ? "../src/assets/images/level3-glass-1.png"
-                        : "../src/assets/images/level3-glass-2.png"
+                        ? "/images/level3-glass-1.png"
+                        : "/images/level3-glass-2.png"
                       : toggle
-                      ? "../src/assets/images/empty-glass-1.png"
-                      : "../src/assets/images/empty-glass-2.png"
+                      ? "/images/empty-glass-1.png"
+                      : "/images/empty-glass-2.png"
                   }
                   alt="Verre vide"
                 />
@@ -503,9 +491,7 @@ function App() {
                     Jeter
                     <img
                       src={
-                        toggle
-                          ? "../src/assets/images/trash-1.png"
-                          : "../src/assets/images/trash-2.png"
+                        toggle ? "/images/trash-1.png" : "/images/trash-2.png"
                       }
                       alt=""
                     />
@@ -517,11 +503,7 @@ function App() {
                   >
                     Servir
                     <img
-                      src={
-                        toggle
-                          ? "../src/assets/images/go-1.png"
-                          : "../src/assets/images/go-2.png"
-                      }
+                      src={toggle ? "/images/go-1.png" : "/images/go-2.png"}
                       alt=""
                     />
                   </button>
@@ -555,9 +537,7 @@ function App() {
                         <div className="absolute top-0 right-0 p-1 selected">
                           <img
                             src={
-                              toggle
-                                ? "../src/assets/images/ok-1.png"
-                                : "../src/assets/images/ok-2.png"
+                              toggle ? "/images/ok-1.png" : "/images/ok-2.png"
                             }
                             alt=""
                           />
@@ -575,11 +555,7 @@ function App() {
                 className="scroll-left"
               >
                 <img
-                  src={
-                    toggle
-                      ? "../src/assets/images/left-1.png"
-                      : "../src/assets/images/left-2.png"
-                  }
+                  src={toggle ? "/images/left-1.png" : "/images/left-2.png"}
                 />
               </div>
             )}
@@ -592,11 +568,7 @@ function App() {
                 className="scroll-right"
               >
                 <img
-                  src={
-                    toggle
-                      ? "../src/assets/images/right-1.png"
-                      : "../src/assets/images/right-2.png"
-                  }
+                  src={toggle ? "/images/right-1.png" : "/images/right-2.png"}
                 />
               </div>
             )}
