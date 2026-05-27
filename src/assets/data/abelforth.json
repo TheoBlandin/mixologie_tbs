@@ -1,0 +1,23 @@
+{
+  "presentation": "Bienvenue pour ton premier jour aux Trois Balais ! Ta première tâche sera de faire plaisir à tes collègues en préparant leur boisson préférée. Un cocktail est composé de trois ingrédients, pas un de plus, pas un de moins. Bon courage !",
+
+  "count": [
+    "On ne vous apprend donc pas à compter à Poudlard ? J'ai dit trois ingrédients !",
+    "Je te rappelle qu'une boisson se compose de trois ingrédients.",
+    "Trois ingrédients. Ce n'est pourtant pas si compliqué."
+  ],
+
+  "close": [
+    "Ça ressemble à quelque chose que {{name}} pourrait boire.",
+    "Je crois avoir déjà vu {{name}} préparer une boisson de ce genre.",
+    "Cette boisson me rappelle étrangement {{name}}.",
+    "Tu sembles être sur la bonne piste pour débusquer {{name}}."
+  ],
+
+  "off": [
+    "Je ne sais pas ce que tu essaies de faire, mais ce n'est clairement pas une réussite.",
+    "Mouais... je préfère encore la Bièraubeurre.",
+    "Ce n'est pas en mélangeant des ingrédients au hasard que tu graviras les échelons.",
+    "Décidément, ton palais est aussi développé que celui d'un troll des cavernes."
+  ]
+}

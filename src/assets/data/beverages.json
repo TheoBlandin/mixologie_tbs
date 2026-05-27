@@ -1,0 +1,42 @@
+{
+  "tropical": {
+    "name": "Le Tropical",
+    "composition": ["jus-coco", "jus-passion", "tranche-ananas"]
+  },
+  "douceur-estival": {
+    "name": "Douceur estivale",
+    "composition": ["eau", "sirop-peche", "sirop-rose"]
+  },
+  "spritz-myrtille-violette": {
+    "name": "Spritz Myrtille-Violette",
+    "composition": ["eau-petillante", "sirop-violette", "puree-myrtille"]
+  },
+  "ikea": {
+    "name": "Ikéa",
+    "composition": ["eau-petillante", "sirop-airelles", "sirop-sureau"]
+  },
+  "sunset-lover": {
+    "name": "Sunset Lover",
+    "composition": ["jus-passion", "jus-mangue", "sirop-framboise"]
+  },
+  "smoothie-myrtille": {
+    "name": "Smoothie aux myrtilles",
+    "composition": ["lait", "puree-myrtille", "sirop-framboise"]
+  },
+  "diabolo-peche": {
+    "name": "Diabolo pêche",
+    "composition": ["eau-petillante", "sirop-peche", "rondelle-citron"]
+  },
+  "jardin-floral": {
+    "name": "Jardin floral",
+    "composition": ["eau", "sirop-violette", "sirop-rose"]
+  },
+  "virgin-pina-colada": {
+    "name": "Virgin Piña Colada",
+    "composition": ["lait-coco", "jus-ananas", "tranche-ananas"]
+  },
+  "ifecho": {
+    "name": "Ifécho",
+    "composition": ["jus-pomme", "jus-mangue", "tranche-ananas"]
+  }
+}
