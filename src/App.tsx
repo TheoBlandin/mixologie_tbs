@@ -23,7 +23,7 @@ function App() {
     setCanScrollRight(scrollLeft + clientWidth < scrollWidth);
   };
 
-  const scroll = (direction) => {
+  const scroll = (direction: "left" | "right") => {
     const el = barRef.current;
     if (!el) return;
 
@@ -36,7 +36,7 @@ function App() {
   const [paintingsModal, setPaintingsModal] = useState(false);
   const [infoModal, setInfoModal] = useState(false);
 
-  const [foundMember, setFoundMember] = useState("");
+  const [foundMember, setFoundMember] = useState<string>("");
   const [discoveredMembers, setDiscoveredMembers] = useState([]);
 
   const [msgAbelforth, setMsgAbelforth] = useState("");
@@ -48,7 +48,7 @@ function App() {
 
     setMsgAbelforth(abelforth.presentation);
 
-    setDiscoveredMembers(JSON.parse(localStorage.getItem("discovered")) ?? []);
+    if (localStorage.getItem("discovered")) setDiscoveredMembers(JSON.parse(localStorage.getItem("discovered")));
 
     const el = barRef.current;
     if (!el) return;
@@ -121,9 +121,10 @@ function App() {
       const isClose =
         recipeIngredients.filter((item) => selected.includes(item)).length == 2;
 
-      const member = Object.entries(members).find(
+      const member: string = Object.entries(members).find(
         ([_, value]) => value.beverage === id
-      )?.[0];
+      )[0];
+
       if (isMatch) {
         setFoundMember(member);
         if (!discoveredMembers.includes(member)) {
@@ -285,9 +286,7 @@ function App() {
                     <a href={"../src/assets/history/v3.png"} target="_blank">
                       <img width={330} src={"../src/assets/history/v3.png"} />
                     </a>
-                    <span className="text-inverse small">
-                      Version actuelle
-                    </span>
+                    <span className="text-inverse small">Version actuelle</span>
                   </div>
                 </div>
               </div>
