@@ -43,7 +43,7 @@ function App() {
     const { scrollLeft, scrollWidth, clientWidth } = el;
 
     setCanScrollLeft(scrollLeft > 0);
-    setCanScrollRight(scrollLeft + clientWidth < scrollWidth);
+    setCanScrollRight(Math.ceil(scrollLeft) + clientWidth < scrollWidth);
   };
 
   const scroll = (direction: "left" | "right") => {
@@ -51,7 +51,7 @@ function App() {
     if (!el) return;
 
     el.scrollBy({
-      left: direction === "left" ? -150 : 150,
+      left: direction === "left" ? -300 : 300,
       behavior: "smooth",
     });
   };
@@ -63,6 +63,24 @@ function App() {
   const [discoveredMembers, setDiscoveredMembers] = useState<string[]>([]);
 
   const [msgAbelforth, setMsgAbelforth] = useState("");
+  const [displayMsg, setDisplayMsg] = useState("");
+
+  useEffect(() => {
+    if (msgAbelforth != "") {
+      let index = 0;
+
+      const interval = setInterval(() => {
+        setDisplayMsg(msgAbelforth.slice(0, index + 1));
+        index++;
+
+        if (index >= msgAbelforth.length) {
+          clearInterval(interval);
+        }
+      }, 30);
+
+      return () => clearInterval(interval);
+    }
+  }, [msgAbelforth]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -129,6 +147,7 @@ function App() {
   }
 
   function handleServe() {
+    setMsgAbelforth("");
     let sentence = "";
     if (selectedIngredients.length < 3) {
       sentence =
@@ -184,13 +203,13 @@ function App() {
   return (
     <>
       {foundMember != "" && (
-        <div className="w-full h-full flex flex-col gap-4 items-center justify-center member-found px-4 z-9999">
+        <div className="fixed w-full h-full flex flex-col gap-4 items-center justify-center member-found px-4 z-9999">
           <p className="bravo">Bravo !</p>
 
           <img width={150} height={300} src={members[foundMember].avatar} />
 
           <div className="flex flex-col gap-1">
-            <p className="member-name">
+            <p className="large">
               Tu as trouvé la boisson préférée de {members[foundMember].name} !
             </p>
             <div className="flex flex-col items-center">
@@ -250,7 +269,7 @@ function App() {
             onClick={(e) => e.stopPropagation()}
             className="flex flex-col info-modal p-4 gap-4"
           >
-            <div className="flex flex-row w-full justify-between">
+            <div className="flex flex-row w-full justify-between h-auto">
               <h2 className="text-inverse">Informations</h2>
               <button
                 aria-label="Fermer"
@@ -258,23 +277,23 @@ function App() {
                 className="p-1!"
               >
                 <img
-                  src={toggle ? "/assets/images/x-1.png" : "/assets/images/x-2.png"}
+                  src={
+                    toggle ? "/assets/images/x-1.png" : "/assets/images/x-2.png"
+                  }
                   alt=""
                 />
               </button>
             </div>
-            <div className="flex-info gap-3 flex flex-col">
+            <div className="gap-3 flex flex-info flex-col">
               <div className="flex flex-col gap-1">
                 <h3 className="text-inverse">Comment jouer</h3>
                 <p className="text-inverse">
                   Créez des boissons en mélangeant trois ingrédients différents
                   et servez les à Abelforth pour tenter de découvrir les
-                  boissons préférés des membres de l'équipe des Trois Balais.{" "}
+                  boissons préférés des membres de l'équipe des Trois Balais.
                   <br />
                   Si vous vous sentez perdu, pensez à écouter Abelforth, il fait
-                  parfois des remarques intéressantes. N'hésitez également pas à
-                  aller directement voir les membres de l'équipe pour tenter de
-                  leur sous-tirer des informations.
+                  parfois des remarques intéressantes.
                   <br />
                   Votre avancée est conservée même si vous quittez la page.
                 </p>
@@ -310,7 +329,9 @@ function App() {
                     <a href={"/history/v3.png"} target="_blank">
                       <img width={330} src={"/assets/history/v3.png"} />
                     </a>
-                    <span className="text-inverse small">Version actuelle</span>
+                    <span className="text-inverse small">
+                      Quatrième version
+                    </span>
                   </div>
                 </div>
               </div>
@@ -328,7 +349,8 @@ function App() {
                     Ormolu Font
                   </a>{" "}
                   <br />
-                  Merci à l'équipe pour la conception de leur boisson préférée
+                  Merci à l'équipe des Trois-Balais pour la conception de leur
+                  boisson préférée
                 </p>
               </div>
             </div>
@@ -353,7 +375,9 @@ function App() {
                 className="p-1!"
               >
                 <img
-                  src={toggle ? "/assets/images/x-1.png" : "/assets/images/x-2.png"}
+                  src={
+                    toggle ? "/assets/images/x-1.png" : "/assets/images/x-2.png"
+                  }
                   alt=""
                 />
               </button>
@@ -423,7 +447,11 @@ function App() {
               >
                 Informations
                 <img
-                  src={toggle ? "/assets/images/help-1.png" : "/assets/images/help-2.png"}
+                  src={
+                    toggle
+                      ? "/assets/images/help-1.png"
+                      : "/assets/images/help-2.png"
+                  }
                   alt=""
                 />
               </button>
@@ -449,72 +477,95 @@ function App() {
           </div>
 
           <div className="my-3 flex-1 w-full flex flex-col items-center justify-center glass-container">
-            <div className="relative flex-1 flex flex-col items-left justify-between gap-4 p-3 w-full principal-content glass">
-              <div className="flex gap-2 msg-abelforth">
+            <div className="flex-1 flex flex-row gap-4 p-3 w-full principal-content glass">
+              <div className="flex gap-2 msg-abelforth flex-1">
                 <img
-                  width={100}
-                  height={100}
+                  className="aspect-square!"
                   src={"/assets/avatars/abelforth.png"}
                   alt="Avatar de Abelforth Dumbledore"
                 />
                 {msgAbelforth != "" && (
-                  <div className="speech-bubble">{msgAbelforth}</div>
+                  <div className="speech-bubble">{displayMsg}</div>
                 )}
               </div>
-              <div className="w-full flex flex-col items-center">
-                <img
-                  src={
-                    selectedIngredients.length == 1
-                      ? toggle
-                        ? "/assets/images/level1-glass-1.png"
-                        : "/assets/images/level1-glass-2.png"
-                      : selectedIngredients.length == 2
-                      ? toggle
-                        ? "/assets/images/level2-glass-1.png"
-                        : "/assets/images/level2-glass-2.png"
-                      : selectedIngredients.length == 3
-                      ? toggle
-                        ? "/assets/images/level3-glass-1.png"
-                        : "/assets/images/level3-glass-2.png"
-                      : toggle
-                      ? "/assets/images/empty-glass-1.png"
-                      : "/assets/images/empty-glass-2.png"
-                  }
-                  alt={
-                    selectedIngredients.length == 1 ?
-                      "Verre remplit au premier niveau"
-                      : selectedIngredients.length == 2
-                      ? "Verre remplit au deuxième niveau"
-                      : selectedIngredients.length == 3
-                      ? "Verre remplit au troisième niveau"
-                      : "Verre vide"
-                  }
-                />
-                <div className="flex flex-wrap flex-row justify-center items-start gap-4">
-                  <button
-                    className="game-button"
-                    onClick={handleReset}
-                    aria-label="Jeter"
-                  >
-                    Jeter
-                    <img
-                      src={
-                        toggle ? "/assets/images/trash-1.png" : "/assets/images/trash-2.png"
-                      }
-                      alt=""
-                    />
-                  </button>
-                  <button
-                    onClick={handleServe}
-                    className="game-button"
-                    aria-label="Servir"
-                  >
-                    Servir
-                    <img
-                      src={toggle ? "/assets/images/go-1.png" : "/assets/images/go-2.png"}
-                      alt=""
-                    />
-                  </button>
+              <div className="flex flex-2 glass-board">
+                <div className="flex flex-col items-center justify-center w-auto relative">
+                  <img
+                    src={
+                      selectedIngredients.length == 1
+                        ? toggle
+                          ? "/assets/images/level1-glass-1.png"
+                          : "/assets/images/level1-glass-2.png"
+                        : selectedIngredients.length == 2
+                        ? toggle
+                          ? "/assets/images/level2-glass-1.png"
+                          : "/assets/images/level2-glass-2.png"
+                        : selectedIngredients.length == 3
+                        ? toggle
+                          ? "/assets/images/level3-glass-1.png"
+                          : "/assets/images/level3-glass-2.png"
+                        : toggle
+                        ? "/assets/images/empty-glass-1.png"
+                        : "/assets/images/empty-glass-2.png"
+                    }
+                    alt={
+                      selectedIngredients.length == 1
+                        ? "Verre remplit au premier niveau"
+                        : selectedIngredients.length == 2
+                        ? "Verre remplit au deuxième niveau"
+                        : selectedIngredients.length == 3
+                        ? "Verre remplit au troisième niveau"
+                        : "Verre vide"
+                    }
+                  />
+                  {selectedIngredients.length > 0 && (
+                    <button
+                      className="reset-button"
+                      onClick={handleReset}
+                      aria-label="Jeter"
+                    >
+                      <img
+                        src={
+                          toggle
+                            ? "/assets/images/trash-1.png"
+                            : "/assets/images/trash-2.png"
+                        }
+                        alt=""
+                      />
+                    </button>
+                  )}
+                </div>
+                <div className="flex flex-1 flex-col gap-2 justify-center board-container">
+                  <div className="flex flex-col gap-1 p-3 board h-full w-full">
+                    <span className="text-inverse large">Ingrédients</span>
+                    <ul className="list-['-']">
+                      {[...Array(3)].map((_, i) => (
+                        <li key={i} className="text-inverse ms-4">
+                          &nbsp;
+                          {selectedIngredients[i]
+                            ? ingredients[selectedIngredients[i]].name
+                            : ""}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div className="flex flex-1 flex-col justify-center items-start gap-4">
+                    <button
+                      onClick={handleServe}
+                      className="game-button w-full max-w-[200px]"
+                      aria-label="Servir"
+                    >
+                      Servir
+                      <img
+                        src={
+                          toggle
+                            ? "/assets/images/go-1.png"
+                            : "/assets/images/go-2.png"
+                        }
+                        alt=""
+                      />
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -545,7 +596,9 @@ function App() {
                         <div className="absolute top-0 right-0 p-1 selected">
                           <img
                             src={
-                              toggle ? "/assets/images/ok-1.png" : "/assets/images/ok-2.png"
+                              toggle
+                                ? "/assets/images/ok-1.png"
+                                : "/assets/images/ok-2.png"
                             }
                             alt=""
                           />
@@ -563,7 +616,11 @@ function App() {
                 className="scroll-left"
               >
                 <img
-                  src={toggle ? "/assets/images/left-1.png" : "/assets/images/left-2.png"}
+                  src={
+                    toggle
+                      ? "/assets/images/left-1.png"
+                      : "/assets/images/left-2.png"
+                  }
                 />
               </div>
             )}
@@ -576,7 +633,11 @@ function App() {
                 className="scroll-right"
               >
                 <img
-                  src={toggle ? "/assets/images/right-1.png" : "/assets/images/right-2.png"}
+                  src={
+                    toggle
+                      ? "/assets/images/right-1.png"
+                      : "/assets/images/right-2.png"
+                  }
                 />
               </div>
             )}
