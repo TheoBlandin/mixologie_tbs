@@ -151,7 +151,7 @@ function App() {
           ([_, value]) => value.beverage === id
         );
         
-        const member = entry?.[0];
+        const member = entry?.[0] ?? '';
 
       if (isMatch) {
         setFoundMember(member);
