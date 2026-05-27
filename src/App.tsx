@@ -36,7 +36,7 @@ function App() {
   const [paintingsModal, setPaintingsModal] = useState<boolean>(false);
   const [infoModal, setInfoModal] = useState<boolean>(false);
 
-  const [foundMember, setFoundMember] = useState<string>("");
+  const [foundMember, setFoundMember] = useState<keyof typeof members>(undefined);
   const [discoveredMembers, setDiscoveredMembers] = useState<string[]>([]);
 
   const [msgAbelforth, setMsgAbelforth] = useState("");
@@ -69,7 +69,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    const isModalOpen = paintingsModal || infoModal || foundMember;
+    const isModalOpen = paintingsModal || infoModal || foundMember !== null;
 
     if (isModalOpen) {
       document.body.style.overflow = "hidden";
@@ -101,7 +101,7 @@ function App() {
 
   function handleReset() {
     setSelectedIngredients([]);
-    setFoundMember("");
+    setFoundMember(undefined);
     setMsgAbelforth("");
   }
 
@@ -124,10 +124,11 @@ function App() {
       const isClose =
         recipeIngredients.filter((item) => selected.includes(item)).length == 2;
 
-        const member =
-        Object.entries(members).find(
-          ([_, value]) => value.beverage === id
-        )?.[0] ?? "";
+      const entry = Object.entries(members).find(
+        ([_, value]) => value.beverage === id
+      );
+
+      const member = entry?.[0] as keyof typeof members;
 
       if (isMatch) {
         setFoundMember(member);
@@ -159,7 +160,7 @@ function App() {
 
   return (
     <>
-      {foundMember != "" && (
+      {foundMember && (
         <div className="w-full h-full flex flex-col gap-4 items-center justify-center member-found px-4 z-9999">
           <p className="bravo">Bravo !</p>
 
@@ -393,7 +394,7 @@ function App() {
       )}
 
       <div
-        aria-hidden={paintingsModal || infoModal || foundMember != ""}
+        aria-hidden={paintingsModal || infoModal || foundMember !== null}
         className="max-w-[1440px] mx-auto px-2"
       >
         <div className="flex flex-col min-h-screen w-full py-2 items-center">
