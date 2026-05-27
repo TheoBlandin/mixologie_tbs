@@ -6,6 +6,29 @@ import jsonBeverages from "./../src/assets/data/beverages.json";
 import jsonMembers from "./../src/assets/data/members.json";
 import jsonAbelforth from "./../src/assets/data/abelforth.json";
 
+type Ingredients = {
+  [key: string]: {
+    name: string;
+    image1: string;
+    image2: string;
+  };
+}
+
+type Beverages = {
+  [key: string]: {
+    name: string;
+    composition: string[];
+  };
+}
+
+type Members = {
+  [key: string]: {
+    name: string;
+    avatar: string;
+    beverage: string;
+  }
+}
+
 function App() {
   const [toggle, setToggle] = useState(false);
 
@@ -36,7 +59,7 @@ function App() {
   const [paintingsModal, setPaintingsModal] = useState<boolean>(false);
   const [infoModal, setInfoModal] = useState<boolean>(false);
 
-  const [foundMember, setFoundMember] = useState<keyof typeof members>(undefined);
+  const [foundMember, setFoundMember] = useState<string>("");
   const [discoveredMembers, setDiscoveredMembers] = useState<string[]>([]);
 
   const [msgAbelforth, setMsgAbelforth] = useState("");
@@ -69,7 +92,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    const isModalOpen = paintingsModal || infoModal || foundMember !== null;
+    const isModalOpen = paintingsModal || infoModal || foundMember;
 
     if (isModalOpen) {
       document.body.style.overflow = "hidden";
@@ -82,9 +105,9 @@ function App() {
     };
   }, [paintingsModal, infoModal, foundMember]);
 
-  const ingredients = jsonIngredients;
-  const beverages = jsonBeverages;
-  const members = jsonMembers;
+  const ingredients: Ingredients = jsonIngredients;
+  const beverages: Beverages = jsonBeverages;
+  const members: Members = jsonMembers;
   const abelforth = jsonAbelforth;
 
   const [selectedIngredients, setSelectedIngredients] = useState<string[]>([]);
@@ -101,7 +124,7 @@ function App() {
 
   function handleReset() {
     setSelectedIngredients([]);
-    setFoundMember(undefined);
+    setFoundMember("");
     setMsgAbelforth("");
   }
 
@@ -124,11 +147,11 @@ function App() {
       const isClose =
         recipeIngredients.filter((item) => selected.includes(item)).length == 2;
 
-      const entry = Object.entries(members).find(
-        ([_, value]) => value.beverage === id
-      );
-
-      const member = entry?.[0] as keyof typeof members;
+        const entry = Object.entries(members).find(
+          ([_, value]) => value.beverage === id
+        );
+        
+        const member = entry?.[0];
 
       if (isMatch) {
         setFoundMember(member);
@@ -145,7 +168,7 @@ function App() {
       } else if (isClose) {
         sentence = abelforth["close"][
           Math.floor(Math.random() * abelforth["close"].length)
-        ].replace("{{name}}", members[member].pseudo);
+        ].replace("{{name}}", members[member].name);
         setMsgAbelforth(sentence);
         return;
       }
@@ -160,7 +183,7 @@ function App() {
 
   return (
     <>
-      {foundMember && (
+      {foundMember != "" && (
         <div className="w-full h-full flex flex-col gap-4 items-center justify-center member-found px-4 z-9999">
           <p className="bravo">Bravo !</p>
 
@@ -394,7 +417,7 @@ function App() {
       )}
 
       <div
-        aria-hidden={paintingsModal || infoModal || foundMember !== null}
+        aria-hidden={paintingsModal || infoModal || foundMember != ""}
         className="max-w-[1440px] mx-auto px-2"
       >
         <div className="flex flex-col min-h-screen w-full py-2 items-center">
