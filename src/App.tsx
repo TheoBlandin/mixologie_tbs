@@ -33,11 +33,11 @@ function App() {
     });
   };
 
-  const [paintingsModal, setPaintingsModal] = useState(false);
-  const [infoModal, setInfoModal] = useState(false);
+  const [paintingsModal, setPaintingsModal] = useState<boolean>(false);
+  const [infoModal, setInfoModal] = useState<boolean>(false);
 
   const [foundMember, setFoundMember] = useState<string>("");
-  const [discoveredMembers, setDiscoveredMembers] = useState([]);
+  const [discoveredMembers, setDiscoveredMembers] = useState<string[]>([]);
 
   const [msgAbelforth, setMsgAbelforth] = useState("");
 
@@ -48,7 +48,10 @@ function App() {
 
     setMsgAbelforth(abelforth.presentation);
 
-    if (localStorage.getItem("discovered")) setDiscoveredMembers(JSON.parse(localStorage.getItem("discovered")));
+    const discovered = localStorage.getItem("discovered");
+    if (discovered) {
+      setDiscoveredMembers(JSON.parse(discovered));
+    }
 
     const el = barRef.current;
     if (!el) return;
@@ -121,9 +124,10 @@ function App() {
       const isClose =
         recipeIngredients.filter((item) => selected.includes(item)).length == 2;
 
-      const member: string = Object.entries(members).find(
-        ([_, value]) => value.beverage === id
-      )[0];
+        const member =
+        Object.entries(members).find(
+          ([_, value]) => value.beverage === id
+        )?.[0] ?? "";
 
       if (isMatch) {
         setFoundMember(member);
