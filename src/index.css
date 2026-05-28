@@ -149,6 +149,7 @@ h3 {
   background-color: #0B211C;
   border: 5px solid #a57d4d;
   border-radius: 4px;
+  max-width: 400px;
 }
 
 @media (max-width: 600px) {
@@ -172,10 +173,6 @@ h3 {
     flex-direction: row;
     align-items: center;
     gap: 4px;
-  }
-
-  .board-container {
-    align-items: end;
   }
 }
 

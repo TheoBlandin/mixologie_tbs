@@ -535,7 +535,7 @@ function App() {
                     </button>
                   )}
                 </div>
-                <div className="flex flex-1 flex-col gap-2 justify-center board-container">
+                <div className="flex flex-1 flex-col gap-2 justify-center items-start board-container">
                   <div className="flex flex-col gap-1 p-3 board h-full w-full">
                     <span className="text-inverse large">Ingrédients</span>
                     <ul className="list-['-']">
